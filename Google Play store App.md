@@ -1,9 +1,8 @@
 ### Introduction:
 
-+ I assume I am a part of google analytics team working on the price analysis of Google play store Apps
++ I am conducting a price analysis of Google play store Apps
 
-+ As a team, I am trying to prototype a project to investigate whether it is profitable enough to secure funding, allowing decision makers to invest time and resources.
-
++ As a part of google analytics team, I am trying to prototype a project to investigate whether it is profitable enough to secure funding, allowing decision makers to invest time and resources.
 
 ### Assumption:
 + We assume the account manager approaches us to prototype the project, considering that the department's  marketing budget does not allow her to invest in ads (which would boost sales). The only way to improve the revenue is by adjusting the price.
@@ -72,6 +71,45 @@ print(playstore.info())
     dtypes: float64(1), object(12)
     memory usage: 1.1+ MB
     None
+
+### Google play store data contains:
+`App`: 
+
+
+`Category`:
+
+
+`Rating`:
+
+
+`Reviews`:
+
+
+`Size`:
+
+
+`Installs`:
+
+
+`Type`:
+
+
+`Price`:
+
+
+`Content Rating`:
+
+
+`Genres`:
+
+
+`Last Updated`:
+
+
+`Current Ver`:
+
+
+`Android Ver`:
 
 
 ### Findings:
