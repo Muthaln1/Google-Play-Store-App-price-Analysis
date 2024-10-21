@@ -1320,7 +1320,7 @@ print(affordable_apps.groupby(['affordability']).mean()['New Price_categ'])
 
 ### Average_price: 
 
-+ Using the provided prices, we have obtained the new prices based on three criteria: affordability, genre, and category
++ Using the provided prices, we have obtained the new prices based on three criteria: `Affordability`, `Genre`, and `Category`
 
 + Each category provides mean prices based on its respective groups
 
