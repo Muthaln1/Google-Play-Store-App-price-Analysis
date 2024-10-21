@@ -470,8 +470,8 @@ print(paid.head(2))
 
 ## Findings:
 + There is duplicate data in the `App` field. This is due to the presence of the `Reviews` and `Category` fields
-+ Some apps are categorized under both Game and Family.
-+ The reviews are collected at different points in time, and we should keep the highest review for each app, as it indicates the most current data.
++ Some apps are categorized under both Game and Family
++ The reviews are collected at different points in time, and we should keep the highest review for each app, as it indicates the most current data
 
 
 ```python
@@ -573,10 +573,10 @@ print('Duplicate Values:' ,paid.duplicated(subset="App").sum())
     Duplicate Values: 0
 
 
-### Findings:
+## Findings:
 
-+ The distribution of App prices is right-skewed, with most prices falling below 50 dollars.
-+ We will remove the outliers and focus on rows where the price is 50 dollars or below for better analysis.
++ The distribution of App prices is right-skewed, with most prices falling below 50 dollars
++ We will remove the outliers and focus on rows where the price is 50 dollars or below for better analysis
 
 
 ```python
@@ -606,7 +606,7 @@ print(paid['Price'].min())
 
 ### Segmenting the data
 
-+ Due to the presence of outliers, I am curating the data into the affordable_apps DataFrame so that the price range of apps is between a minimum of 0.99 cents and a maximum of 50 dollars.
++ Due to the presence of outliers, I am curating the data into the affordable_apps DataFrame so that the price range of apps is between a minimum of 0.99 cents and a maximum of 50 dollars
 
 
 ```python
@@ -735,12 +735,12 @@ affordable_apps.hist(column="Price", grid=False, figsize=(12,6))
 
 ### Segmenting the data using App price
 
-### Findings:
+## Findings:
 + The apps are categorized based on the following conditions:
      + Price < 5: Cheap
      + Price between 5 and 20: Reasonable
      + Price > 20: Expensive
-+ Out of the 733 apps, 596 are considered cheap, 121 are categorized as reasonable, and 16 are classified as expensive.
++ Out of the 733 apps, 596 are considered cheap, 121 are categorized as reasonable, and 16 are classified as expensive
 
 
 ```python
@@ -831,7 +831,7 @@ affordable_apps['affordability'] = affordable_apps.apply(cheaper, axis =1)
       affordable_apps['affordability'] = affordable_apps.apply(cheaper, axis =1)
 
 
-#### The affordable_apps dataframe consists of 596 apps that cost less than 5 dollars, 121 apps priced between 5 and 20 dollars, and 16 apps priced above 20 dollars.
+#### The affordable_apps dataframe consists of 596 apps that cost less than 5 dollars, 121 apps priced between 5 and 20 dollars, and 16 apps priced above 20 dollars
 
 
 ```python
@@ -844,11 +844,11 @@ print(affordable_apps['affordability'].value_counts())
     Name: affordability, dtype: int64
 
 
-### Findings:
+## Findings:
 
-+ There is no meaningful relationship between `Price` and `Ratings` that could help us adjust the price without impacting the app's ratings. 
++ There is no meaningful relationship between `Price` and `Ratings` that could help us adjust the price without impacting the app's ratings
 
-+ The correlation between `Price` and `Ratings` is -0.0499, which is quite low.
++ The correlation between `Price` and `Ratings` is -0.0499, which is quite low
 
 
 ```python
@@ -862,7 +862,7 @@ print(affordable_apps[['Price','Rating']].corr())
 
 
 ```python
-#The data points are clearly visible, indicating that there is no significant relationship between the variables.
+#The data points are clearly visible, indicating that there is no significant relationship between the variables
 
 affordable_apps[cheap].plot(kind="scatter", x="Price", y="Rating")
 plt.xlabel("Price (in dollars)")
@@ -879,7 +879,7 @@ plt.show()
 
 
 ```python
-#  Price has no correlation with the Ratings which helps us to tweak the price without affecting the rating:
+# Price has no correlation with the Ratings which helps us to tweak the price without affecting the rating
 # Price segmentation
 
 print('Affordable_cheaper_apps_co-rrelation:',round(affordable_apps[cheap].corr().loc["Rating", "Price"],4))
@@ -912,11 +912,11 @@ affordable_apps.shape
 
 
 
-### Goals:
+## Goals:
 
 I have curated 733 apps for prototyping the project, and the new goals are as follows:
 
-+ To determine the new prices for apps that are undervalued.
++ To determine the new prices for apps that are undervalued
 
 + To use the `affordability`,`Price`,`Genre`,`Category`,`Installs` and `Reviews` fields to establish success criteria for implementing the new price changes
 
@@ -925,19 +925,19 @@ I have curated 733 apps for prototyping the project, and the new goals are as fo
 
 + To flag the apps that meet the above conditions in order to count the number of apps with price adjustment opportunities
 
-+ To create a new price column for the undervalued apps, assigning them their respective mean prices.
++ To create a new price column for the undervalued apps, assigning them their respective mean prices
 
-### Findings:
+## Findings:
 + There are 386 apps priced below the mean price of their respective groups, indicating an opportunity for price adjustments
 
 
-#### The initial mean prices for the respective groups are:
+#### The initial mean prices for the respective groups before price update are:
 
  + Cheap: 2.58
  + Reasonable: 9.88
  + Expensive: 31.86
 
-#### The new mean prices for the respective groups are:
+#### The new mean prices for the respective groups after price update are:
  + Cheap: 3.16
  + Reasonable: 11.56
  + Expensive: 34.34
