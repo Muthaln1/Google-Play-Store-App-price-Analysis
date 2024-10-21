@@ -1385,9 +1385,9 @@ print(round(total_impact_avg))
     83418088
 
 
-### More analysis: ### Rating vs Installs Vs Reviews:
+### More analysis:Rating vs Installs Vs Reviews:
 
-### Findings:
+## Findings:
 
 + The number of 'Installs' has a relationship with 'Reviews' having a high Correlation of (0.807499)
 
@@ -1437,7 +1437,7 @@ plt.show()
 
 
     
-![png](output_99_0.png)
+![png](https://github.com/Muthaln1/Google-Play-Store-App-price-Analysis/blob/main/Rating%20distribution.png)
     
 
 
