@@ -736,6 +736,10 @@ affordable_apps.hist(column="Price", grid=False, figsize=(12,6))
 ### Segmenting the data using App price
 
 ### Findings:
++ The apps are categorized based on the following conditions:
+     + Price < 5: Cheap
+     + Price between 5 and 20: Reasonable
+     + Price > 20: Expensive
 + Out of the 733 apps, 596 are considered cheap, 121 are categorized as reasonable, and 16 are classified as expensive.
 
 
@@ -804,7 +808,7 @@ plt.show()
 
 
 ```python
-# Function to add a column to segment the data into cheaper and resonable apps:
+# Function to add a column to segment the data into cheaper and reasonable apps:
 # There were totally 596 apps cost less than 5$(Cheaper) and 137 apps that costs above 5$(Reasonable)
 
 def cheaper(x):
@@ -842,9 +846,9 @@ print(affordable_apps['affordability'].value_counts())
 
 ### Findings:
 
-+ There is no meaningful relationship between price and rating that could help us adjust the price without impacting the app's ratings. 
++ There is no meaningful relationship between `Price` and `Ratings` that could help us adjust the price without impacting the app's ratings. 
 
-+ The correlation between price and rating is -0.0499, which is quite low.
++ The correlation between `Price` and `Ratings` is -0.0499, which is quite low.
 
 
 ```python
@@ -869,13 +873,13 @@ plt.show()
 
 
     
-![png](output_57_0.png)
+![png](https://github.com/Muthaln1/Google-Play-Store-App-price-Analysis/blob/main/Price%20Vs%20Rating.png)
     
 
 
 
 ```python
-# Price has no correlation with the Rating which helps us to tweak the price without affecting the rating:
+#  Price has no correlation with the Ratings which helps us to tweak the price without affecting the rating:
 # Price segmentation
 
 print('Affordable_cheaper_apps_co-rrelation:',round(affordable_apps[cheap].corr().loc["Rating", "Price"],4))
