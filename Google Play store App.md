@@ -10,8 +10,7 @@
 ## GOAL:
 + To improve the revenue of undervalued apps in the paid category and motivate developers to continue working on them
 + To determine which paid apps are undervalued (here, "undervalued" means that their price could be increased without lowering demand)
-
-
+___
 ### Google play store data contains:
 `App`: The name of the App
 
