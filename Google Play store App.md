@@ -942,7 +942,7 @@ I have curated 733 apps for prototyping the project, and the new goals are as fo
  + Reasonable: 11.56
  + Expensive: 34.34
 
-
+### Affordability as a success criteria
 ```python
 # Considering the affordability group to determine the mean price:
 aff_mean_test = affordable_apps.groupby(['affordability']).mean()[['Price']]
@@ -961,7 +961,7 @@ print(aff_mean_test)
       aff_mean_test = affordable_apps.groupby(['affordability']).mean()[['Price']]
 
 
-### Price Criteria
+### Price as a success criteria
 
 
 ```python
@@ -987,16 +987,16 @@ affordable_apps['price_criterion'] = affordable_apps.apply(price_criteriaa,axis 
 
 
 ```python
-print(affordable_apps['price_criterion'].value_counts())
+print(f'''Apps above and below mean price:\n{affordable_apps['price_criterion'].value_counts()}''')
+```
+```python
+  Apps above and below mean price:
+1    386
+0    347
+Name: price_criterion, dtype: int64
 ```
 
-    1    386
-    0    347
-    Name: price_criterion, dtype: int64
-
-
-#### `New price` column based on their respective group's mean price
-
+#### Adding a `New price` column based on their respective group's mean price
 
 ```python
 # affordability mean
@@ -1014,7 +1014,6 @@ def new_price(x):
         
 # New column creation named 'New Price'        
 affordable_apps['New Price'] = affordable_apps.apply(new_price,axis =1)
-print(affordable_apps['New Price'].head(2))
 ```
 
                        Price
@@ -1022,9 +1021,7 @@ print(affordable_apps['New Price'].head(2))
     cheap           2.580319
     expensive      31.865000
     reasonable      9.881240
-    2241    9.88
-    4034    2.58
-    Name: New Price, dtype: float64
+
 
 
     /var/folders/16/3tzmlcc129z3xr007ykwjb640000gp/T/ipykernel_18030/2337159436.py:2: FutureWarning: The default value of numeric_only in DataFrameGroupBy.mean is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
@@ -1044,6 +1041,7 @@ aff_mean_test_new = affordable_apps.groupby(['affordability']).mean()[['New Pric
 
 print(aff_mean_test_new)
 ```
+#### New mean prices after price update
 
                    New Price
     affordability           
@@ -1058,11 +1056,11 @@ print(aff_mean_test_new)
 
 ### Genre criteria: 
 
-+ To determine the mean price of affordable apps grouped by genre and compare them with their respective mean prices to identify undervalued apps
++ To determine the mean price of affordable apps grouped by `Genre` and compare them with their respective mean prices to identify undervalued apps
 
 + Apps with more than one genres should provide greater visibility to the audience leading to more downloads
 
-### Findings:
+## Findings:
 + There are 425 apps priced below their mean price based on the affordability & genre criteria
 
 + Out of 773 apps, 70 are tagged under multiple genres, while 663 are tagged under a single genre
@@ -1241,7 +1239,7 @@ print(affordable_apps.groupby(['affordability']).mean()['New Price_genre'])
       print(affordable_apps.groupby(['affordability']).mean()['New Price_genre'])
 
 
-### Category criteria:
+### Category as a success criteria
 
 + To determine the mean price of affordable apps grouped by category and compare them with their respective mean prices to identify undervalued apps
 
@@ -1328,7 +1326,7 @@ print(affordable_apps.groupby(['affordability']).mean()['New Price_categ'])
 
 + We will obtain the mean price of all these criterias to determine the new prices for our undervalued apps
 
-### Findings: 
+## Findings: 
 
 + The new price we have set for our undervalued apps shows us we have an opportunity to create value for our business
 
