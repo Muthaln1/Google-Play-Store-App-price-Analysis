@@ -779,7 +779,7 @@ plt.show()
 
 
     
-![png](output_49_0.png)
+![png](https://github.com/Muthaln1/Google-Play-Store-App-price-Analysis/blob/main/Price%20Distribution%20-%20Reasonable%20apps.png)
     
 
 
@@ -796,7 +796,7 @@ plt.show()
 
 
     
-![png](output_50_0.png)
+![png](https://github.com/Muthaln1/Google-Play-Store-App-price-Analysis/blob/main/Price%20Distribution%20-%20Expensive%20Apps.png)
     
 
 
