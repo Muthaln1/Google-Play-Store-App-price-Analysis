@@ -1241,7 +1241,7 @@ print(affordable_apps.groupby(['affordability']).mean()['New Price_genre'])
 
 ### Category as a success criteria
 
-+ To determine the mean price of affordable apps grouped by category and compare them with their respective mean prices to identify undervalued apps
++ To determine the mean price of affordable apps grouped by `Category` and compare them with their respective mean prices to identify undervalued apps
 
 ### Findings:
 + There are 376 apps priced below their mean price based on the affordability & category criteria
